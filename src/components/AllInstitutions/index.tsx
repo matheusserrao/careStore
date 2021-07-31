@@ -1,8 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ProductCard } from '../ProductCard/index'
-import { Link } from 'react-router-dom'
+import { InstitutionCard } from '../InstitutionCard'
 
 export interface Institution {
   name: string
@@ -16,13 +15,13 @@ export interface Institution {
   }
 }
 
-export function Campaigns() {
+export function AllInstitutions() {
   const [institutions, setInstitutions] = useState<Institution[]>([])
 
   useEffect(() => {
     function loadInstitutions() {
       axios
-        .get('https://app-care-store.herokuapp.com/institutions')
+        .get('http://localhost:4000/institutions')
         .then((response) => setInstitutions(response.data))
     }
 
@@ -30,18 +29,18 @@ export function Campaigns() {
   }, [])
 
   return (
-    <CampaignsContainer>
+    <InstitutionsContainer>
       <TitleContainer>
-        <Title>Vitrine de Campanhas</Title>
-        <Link to="/campaigns"> Ver todas</Link>
+        <Title>Instituições</Title>
+        <SeeAllLink href=""> Ver todas</SeeAllLink>
       </TitleContainer>
 
       <Showcase>
-        {institutions.map((institution, index) => (
-          <ProductCard key={index} institution={institution} />
+        {institutions.map((institution) => (
+          <InstitutionCard institution={institution} />
         ))}
       </Showcase>
-    </CampaignsContainer>
+    </InstitutionsContainer>
   )
 }
 
@@ -77,10 +76,11 @@ const Showcase = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+  
   }
 `
 
-const CampaignsContainer = styled.div`
+const InstitutionsContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;

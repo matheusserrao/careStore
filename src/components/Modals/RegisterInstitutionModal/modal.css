@@ -10,7 +10,7 @@
     justify-content: center;
 }
 .react-modal-content{
-    width: 100%;
+    width: 90%;
     max-width: 576px;
     background-color: white;
     padding: 3rem;
@@ -41,7 +41,6 @@ input {
 }
 
 span {
-
     margin-left: 400px;
     float: right;
 }

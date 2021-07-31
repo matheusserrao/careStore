@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Institution } from "../Campaigns";
 import ProgressBar from "../ProgressBar";
@@ -9,6 +10,7 @@ interface ProductCardProps {
 }
 export function InstitutionCard({ institution }: ProductCardProps) {
   return (
+    <Link to="/anjosdaleste">
     <InstitutionCardContainer>
       <ImageCard>
         <ProductImage src="https://scontent.ftow1-1.fna.fbcdn.net/v/t1.6435-9/61610439_1632021516941781_2816442130250072064_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=UTjlG1u-jNsAX9tEDKw&_nc_ht=scontent.ftow1-1.fna&oh=677f3e3f8c3724f727165f58bce51f85&oe=612AFCD7" />
@@ -20,6 +22,7 @@ export function InstitutionCard({ institution }: ProductCardProps) {
         <p>Ações cadastradas: <a href="">Ver ações</a></p>
       </InstitutionDescription>
     </InstitutionCardContainer>
+    </Link>
   );
 }
 

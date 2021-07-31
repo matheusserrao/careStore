@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import iconCard1 from '../../imgs/iconCard1.png'
 import iconCard2 from '../../imgs/iconCard2.png'
 
+
 export default function Cards() {
   return (
     <CardsContainer>
-      <FirstCard>
+      <FirstCard> 
         <img src={iconCard1} />
         <p>
           Conheça nossas propostas e <a href="">inscreva</a> sua instituição

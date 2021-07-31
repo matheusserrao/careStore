@@ -15,7 +15,7 @@ export function Header({onOpenNewLoginModal, onOpenNewRegisterModal}: HeaderProp
       <Link to="/"><img src={logo} /> </Link>  
       <Navbar>
         <ul>
-          <li>Instituições</li>
+          <li><Link className="link" to ="/institutions">Instituições</Link></li>
           <li>Ações Sociais</li>
           <li>Resultados</li>
           <li>Quem somos</li>
@@ -43,6 +43,15 @@ const HeaderContainer = styled.div`
   font-size: 1rem;
   color: #fff;
   background-color: #07689F;
+
+  .link {
+  
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10px;
+    color: #ffff;
+  }
+  
 `
 const Navbar = styled.nav`
   display: flex;

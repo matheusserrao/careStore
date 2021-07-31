@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { InstitutionCard } from '../InstitutionCard'
 
@@ -21,8 +22,9 @@ export function Institutions() {
   useEffect(() => {
     function loadInstitutions() {
       axios
-        .get('http://localhost:4000/institutions')
+        .get('https://app-care-store.herokuapp.com/institutions')
         .then((response) => setInstitutions(response.data))
+  
     }
 
     loadInstitutions()
@@ -32,12 +34,12 @@ export function Institutions() {
     <InstitutionsContainer>
       <TitleContainer>
         <Title>Instituições</Title>
-        <SeeAllLink href=""> Ver todas</SeeAllLink>
+        <SeeAllLink href=""><Link to="/institutions"> Ver todas</Link></SeeAllLink>
       </TitleContainer>
 
       <Showcase>
-        {institutions.map((institution) => (
-          <InstitutionCard institution={institution} />
+        {institutions.map((institution, index) => (
+          <InstitutionCard key={index} institution={institution} />
         ))}
       </Showcase>
     </InstitutionsContainer>
